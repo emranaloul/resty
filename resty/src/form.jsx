@@ -1,49 +1,38 @@
 import React from 'react';
 import './form.scss';
 
-let URL;
-let method;
+
 
 class Main extends React.Component {
-    constructor(props){
-        super(props);
-        this.state ={
-            URL : '',
-            method: ''
-        }
-    }
-    handlerURL = e =>{
-        e.preventDefault()
-        URL = e.target.value;
-    }
-
-    handlerSelect = e =>{
-        e.preventDefault()
-         method = e.target.value;
-    }
-    handlerSubmit = e =>{        
-        e.preventDefault()
-        this.setState({URL: URL, method: method})
+    
+    handlerForm = async e =>{
+        e.preventDefault();
+if(e.target.method.value === 'get'){
+    let raw = await fetch(e.target.url.value);
+    let data = await raw.json(); 
+    this.props.handler(data.results, data.count, raw.headers)
+} else {
+    throw new Error('This feature is not available currently');
+}
     }
 render() {
     return (
 <main>
-    <form>
+    <form onSubmit={this.handlerForm}>
     <label htmlFor="url">URL:</label>
-    <input onChange={this.handlerURL} type="url" id="url"/>
-    <button onClick={this.handlerSubmit} type="click">GO!</button>
-    <input onChange={this.handlerSelect} type="radio" id="get" value="get" name="method" />
+    <input type="url" id="url" required/>
+    <button type="submit">GO!</button>
+    <input type="radio" id="get" value="get" name="method"  required/>
     <label htmlFor="get">get</label>
-    <input onChange={this.handlerSelect} type="radio" id="post" value="post" name="method" />
+    <input type="radio" id="post" value="post" name="method" required/>
     <label htmlFor="post">post</label>
-    <input onChange={this.handlerSelect} type="radio" id="put" value="put" name="method" />
+    <input type="radio" id="put" value="put" name="method" required/>
     <label htmlFor="put">put</label>
-    <input onChange={this.handlerSelect} type="radio" id="delete" value="delete" name="method" />
+    <input type="radio" id="delete" value="delete" name="method" required/>
     <label htmlFor="delete">delete</label>
-    {/* <p>{this.state.method + '       ' + '  ' + ''   + this.state.URL}</p> */}
 
     </form>
-    <p>{`${this.state.method}      ${this.state.URL}`}</p>
+    {/* <p>{`${this.state.Data}      ${this.state.URL}`}</p> */}
     </main>
     )
 }
