@@ -1,10 +1,10 @@
 # resty
 
-## LAB - 26
+## LAB - 27
 
 ### Author: Emran Aloul
 ### Deployment
-* [Heroku](https://emran-resty.herokuapp.com/)
+* [gh-pages](https://emranaloul.github.io/resty)
 ### Running the app
 * cd resty
 * npm start
