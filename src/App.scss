@@ -1,6 +1,9 @@
 body{
-  width: 960px;
+  width:100%;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .App {
@@ -42,4 +45,8 @@ body{
   }
 }
 
+#container{
+  display: flex;
+  justify-content:space-between;
+}
 

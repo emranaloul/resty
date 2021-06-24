@@ -6,12 +6,8 @@ class Results extends React.Component {
     return(
         <React.Fragment>
             <p>
-                {console.log('this.props', this.props)}
                 {this.props.results.Response?( <JSONPretty id="json-pretty" data={this.props.results}></JSONPretty> ): null }
-               
-                
-                   
-                
+
 
             </p> 
             
