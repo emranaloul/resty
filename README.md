@@ -1,6 +1,6 @@
 # resty
 
-## LAB - 27
+## LAB - 28
 
 ### Author: Emran Aloul
 ### Deployment
@@ -11,4 +11,4 @@
 
 ### UML 
 
-![UML](uml.png)
+![UML](uml2.png)
