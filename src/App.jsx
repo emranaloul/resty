@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.css';
 import React from 'react'
 import Header from './header';
 import Form from './form';
@@ -13,25 +13,25 @@ class App extends React.Component {
     this.state = {
     }
   }
-  handlerForm = ( results, count) =>{
+  handlerForm = ( results, count, flag) =>{
    
-   this.setState({Headers:{'Content-Type': 'application/json'},Response:{count:count,results:results}})
+   this.setState({Headers:{'Content-Type': 'application/json'},Response:{count:count,results:results}, flag:flag})
+  
+   console.log("🚀 ~ file: App.jsx ~ line 21 ~ App ~ this.state", this.state)
   }
-
-  // localHandler = (results) =>{
-  //   this.setState({local: results})
-  //   console.log("🚀 ~ file: App.jsx ~ line 23 ~ App ~ results", this.state)
+  handler = (results) =>{
+    let data = JSON.parse(localStorage.getItem('history'))[results];
     
-  // }
-
-
+    this.setState({history: data})
+  }
+  
   render() {
     return (
      <React.Fragment>
        <Header />
        <Form  handler={this.handlerForm}/>
        <div id="container">
-       <History/>
+       <History render={this.handler}/>
        <Results results={this.state} />
        </div>
        <Footer />
