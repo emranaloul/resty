@@ -6,7 +6,7 @@ const History = ()=> {
     
     return (
         <div id="history">
-            <ul>
+            <ul id="his">
                 {data?data.map((element,idx)=>{
                 return(<li>
                 <span>{element.method}</span>   

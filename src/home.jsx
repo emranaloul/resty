@@ -1,13 +1,11 @@
 import './App.scss';
 import React from 'react'
 import Header from './header';
-// import Form from './form';
+import Form from './form';
 import Footer from './footer';
-// import Results from './results';
-import History from './historypage';
-import Home from './home';
-import Help from './help';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Results from './results';
+import History from './history';
+import { BrowserRouter as Router, HashRouter, MemoryRouter } from 'react-router-dom';
 
 
 
@@ -33,13 +31,12 @@ class App extends React.Component {
     return (
      <Router>
 
-       <Header />
-       <Switch>
-       <Route exact path="/"><Home /></Route>
-       <Route exact path="/history"><History /></Route>
-       <Route exact path="/help"><Help /></Route>
+       <Form  handler={this.handlerForm}/>
+       <div id="container">
+       <History render={this.handler}/>
+       <Results results={this.state} />
+       </div>
        <Footer />
-       </Switch>
      </Router>
 
    
