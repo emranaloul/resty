@@ -1,5 +1,5 @@
 import React from "react";
-import "./form.css";
+import "./form.scss";
 import axios from "axios";
 import If from "./if";
 import Else from "./else";

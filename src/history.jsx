@@ -1,4 +1,4 @@
-import './history.css'
+import './history.scss'
 import React from 'react';
 
 const History = ()=> {
